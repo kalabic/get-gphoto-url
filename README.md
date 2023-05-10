@@ -8,10 +8,15 @@ select 'Create link to share' and provide given link as an argument to this scri
 ```
 
 ## embed_gphoto_url.sh
-Create code for embedding Google Photos image into HTML page. Width and height for preview image need to be given and will be encoded into URL in a way supported by Google servers.
-```
-Usage: Provide image URL (for example, URL created by "get_gphoto_url.sh"),
-width and height as an argument to this script. Redirect output to a file.
+Create code for embedding Google Photos image into HTML page.
 
-./embed_gphoto_url.sh https://lh3.googleusercontent.com/(your URL...) 1024 1024 > embedded_photo.txt
+Script accepts both shared links created by user on Google Photos web page and already created permanent links to image (so, both `photos.app.goo.gl` and `lh3.googleusercontent.com` URLs). It will invoke `get_gphoto_url.sh` script if needed.
+
+Syntax: `embed_gphoto_url.sh <URL> <width> <height> [optional: <CSS class for img>]`
+- Width and height for preview image must be provided and will be encoded into URL in a way supported by Google servers.
+- CSS class is optional and is added into `img` element as `class` attribute: `<img class="CSS class" ...`
+```
+Usage: Provide image URL, width, height and redirect output to a file.
+
+./embed_gphoto_url.sh https://photos.app.goo.gl/(your URL...) 1024 1024 > embedded_photo.txt
 ```
