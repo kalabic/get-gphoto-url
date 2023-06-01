@@ -11,8 +11,8 @@
 # 4. (Optional) CSS class attribute for 'img' element.
 
 # 'get_gphoto_url.sh' is in the same/current folder or scripts are in dir that is in your PATH? TODO: Automate this?
-# get_gphoto_url_sh="get_gphoto_url.sh"
-get_gphoto_url_sh="./get_gphoto_url.sh"
+get_gphoto_url_sh="get_gphoto_url.sh"
+# get_gphoto_url_sh="./get_gphoto_url.sh"
 
 echoerr() { printf "%s\n" "$*" >&2; }
 
@@ -23,7 +23,6 @@ if [[ "$gphoto_url" =~ ^"https://photos.app.goo.gl/" ]]; then
     if [ $? -ne 0 ]; then
         exit 1
     fi
-    echo "other script ok!"
 fi
 
 if ! [[ "$gphoto_url" =~ ^"https://lh3.googleusercontent.com/" ]]; then
@@ -54,7 +53,11 @@ image_url+="${base_url}w${2}-h${3}-p-k"
 if [ -z "$4" ]; then
     code="<a href=\"${large_url}\"> <img src=\"${image_url}\"> </a>"
 else
-    code="<a href=\"${large_url}\"> <img class=\"${4}\" src=\"${image_url}\"> </a>"
+    code="  <a href=
+  \"${large_url}\">
+  <img class=\"${4}\" src=
+  \"${image_url}\">
+  </a>"
 fi
 
 echo "$code"
