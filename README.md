@@ -1,10 +1,15 @@
-## get_gphoto_url.sh
+## get_gphoto_url.sh, get_gphoto_url.csx
 This script will try to create direct permanent link to public shared image on Google Photos (in its original size).
-```
+
 Usage: Open Google Photos in your browser, go to photo, click 'Share' button,
 select 'Create link to share' and provide given link as an argument to this script.
 
+```
 ./get_gphoto_url.sh https://photos.app.goo.gl/pXqnZZXzzMwJkQ5C7
+```
+Or for C# script:
+```
+dotnet script get_gphoto_url.csx https://photos.app.goo.gl/pXqnZZXzzMwJkQ5C7
 ```
 
 ## embed_gphoto_url.sh
